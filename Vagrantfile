@@ -1,7 +1,7 @@
 # Describe VMs
 MACHINES = {
   # VM name "kernel update"
-  :"kernel-update" => {
+  :"rpm" => {
               # VM box
               :box_name => "centos/7",
               # VM CPU count
@@ -42,6 +42,7 @@ Vagrant.configure("2") do |config|
         v.memory = boxconfig[:memory]
         v.cpus = boxconfig[:cpus]
       end
+      box.vm.provision "shell", path: "rpm.sh"
     end
   end
 end
